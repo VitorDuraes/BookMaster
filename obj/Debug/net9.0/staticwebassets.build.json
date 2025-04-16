@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "9uAAILCsnZ5xqu4wCESUz6yqDJ9eOX/NtuTHWKW0QvU=",
+  "Source": "GerenciamentoDeLivros",
+  "BasePath": "_content/GerenciamentoDeLivros",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}
