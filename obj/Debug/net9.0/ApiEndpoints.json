@@ -1,0 +1,307 @@
+[
+  {
+    "ContainingType": "GerenciamentoDeLivros.Controllers.AutorController",
+    "Method": "AdicionarAutor",
+    "RelativePath": "api/Autor/AdicionarAutor",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "autorCriacaoDTO",
+        "Type": "GerenciamentoDeLivros.DTOs.Autor.AutorCriacaoDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "GerenciamentoDeLivros.Models.ResponseModel\u00601[[System.Collections.Generic.List\u00601[[GerenciamentoDeLivros.Models.AutorModel, GerenciamentoDeLivros, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "GerenciamentoDeLivros.Controllers.AutorController",
+    "Method": "AtualizarAutor",
+    "RelativePath": "api/Autor/AtualizarAutor",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "autorEdicaoDTO",
+        "Type": "GerenciamentoDeLivros.DTOs.Autor.AutorEdicaoDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "GerenciamentoDeLivros.Models.ResponseModel\u00601[[System.Collections.Generic.List\u00601[[GerenciamentoDeLivros.Models.AutorModel, GerenciamentoDeLivros, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "GerenciamentoDeLivros.Controllers.AutorController",
+    "Method": "BuscarAutorPorId",
+    "RelativePath": "api/Autor/BuscarAutorPorId/{idAutor}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idAutor",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "GerenciamentoDeLivros.Models.ResponseModel\u00601[[GerenciamentoDeLivros.Models.AutorModel, GerenciamentoDeLivros, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "GerenciamentoDeLivros.Controllers.AutorController",
+    "Method": "BuscarAutorPorIdLivro",
+    "RelativePath": "api/Autor/BuscarAutorPorIdLivro/{idLivro}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idLivro",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "GerenciamentoDeLivros.Models.ResponseModel\u00601[[GerenciamentoDeLivros.Models.AutorModel, GerenciamentoDeLivros, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "GerenciamentoDeLivros.Controllers.AutorController",
+    "Method": "DeletarAutor",
+    "RelativePath": "api/Autor/DeletvararAutor/{idAutor}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idAutor",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "GerenciamentoDeLivros.Models.ResponseModel\u00601[[System.Collections.Generic.List\u00601[[GerenciamentoDeLivros.Models.AutorModel, GerenciamentoDeLivros, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "GerenciamentoDeLivros.Controllers.AutorController",
+    "Method": "ListarAutores",
+    "RelativePath": "api/Autor/ListarAutores",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "GerenciamentoDeLivros.Models.ResponseModel\u00601[[System.Collections.Generic.List\u00601[[GerenciamentoDeLivros.Models.AutorModel, GerenciamentoDeLivros, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "GerenciamentoDeLivros.Controllers.LivroController",
+    "Method": "AdicionarLivro",
+    "RelativePath": "api/Livro/AdicionarLivro",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "livroCriacaoDTO",
+        "Type": "GerenciamentoDeLivros.DTOs.Livro.LivroCriacaoDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "GerenciamentoDeLivros.Models.ResponseModel\u00601[[System.Collections.Generic.List\u00601[[GerenciamentoDeLivros.Models.LivroModel, GerenciamentoDeLivros, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "GerenciamentoDeLivros.Controllers.LivroController",
+    "Method": "AtualizarLivro",
+    "RelativePath": "api/Livro/AtualizarLivro",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "livroEdicaoDTO",
+        "Type": "GerenciamentoDeLivros.DTOs.Livro.LivroEdicaoDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "GerenciamentoDeLivros.Models.ResponseModel\u00601[[System.Collections.Generic.List\u00601[[GerenciamentoDeLivros.Models.LivroModel, GerenciamentoDeLivros, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "GerenciamentoDeLivros.Controllers.LivroController",
+    "Method": "BuscarLivroPorId",
+    "RelativePath": "api/Livro/BuscarLivroPorId/{idLivror}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idLivro",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "idLivror",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "GerenciamentoDeLivros.Models.ResponseModel\u00601[[GerenciamentoDeLivros.Models.LivroModel, GerenciamentoDeLivros, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "GerenciamentoDeLivros.Controllers.LivroController",
+    "Method": "BuscarLivrosPorIdAutor",
+    "RelativePath": "api/Livro/BuscarLivrosPorIdAutor/{idAutor}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idAutor",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "GerenciamentoDeLivros.Models.ResponseModel\u00601[[GerenciamentoDeLivros.Models.LivroModel, GerenciamentoDeLivros, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "GerenciamentoDeLivros.Controllers.LivroController",
+    "Method": "DeletarLivro",
+    "RelativePath": "api/Livro/DeletarLivro/{idLivro}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idLivro",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "GerenciamentoDeLivros.Models.ResponseModel\u00601[[System.Collections.Generic.List\u00601[[GerenciamentoDeLivros.Models.LivroModel, GerenciamentoDeLivros, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "GerenciamentoDeLivros.Controllers.LivroController",
+    "Method": "ListarLivros",
+    "RelativePath": "api/Livro/ListarLivros",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "GerenciamentoDeLivros.Models.ResponseModel\u00601[[System.Collections.Generic.List\u00601[[GerenciamentoDeLivros.Models.LivroModel, GerenciamentoDeLivros, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  }
+]

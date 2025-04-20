@@ -26,18 +26,6 @@ namespace GerenciamentoDeLivros.Controllers
             var livros = await _livroInterface.ListarLivros();
             return Ok(livros);
         }
-
-        [HttpGet("BuscarLivroPorId/{idLivror}")]
-        public async Task<ActionResult<ResponseModel<LivroModel>>> BuscarLivroPorId(int idLivro)
-        {
-            var livro = await _livroInterface.BuscarLivroPorId(idLivro);
-            if (livro.Status == false)
-            {
-                return NotFound(livro);
-            }
-            return Ok(livro);
-        }
-
         [HttpGet("BuscarLivrosPorIdAutor/{idAutor}")]
         public async Task<ActionResult<ResponseModel<LivroModel>>> BuscarLivrosPorIdAutor(int idAutor)
         {

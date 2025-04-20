@@ -10,10 +10,9 @@ namespace GerenciamentoDeLivros.Services.Livro
 {
     public interface ILivroInterface
     {
-        Task<ResponseModel<List<LivroModel>>> ListarLivros();
-        Task<ResponseModel<LivroModel>> BuscarLivroPorId(int idLivro);
+        Task<ResponseModel<List<LivroDTO>>> ListarLivros();
         Task<ResponseModel<List<LivroModel>>> BuscarLivrosPorIdAutor(int idAutor);
-        Task<ResponseModel<List<LivroModel>>> AdicionarLivro(LivroCriacaoDTO livroCriacaoDTO);
+        Task<ResponseModel<LivroDTO>> AdicionarLivro(LivroCriacaoDTO livroDTO);
         Task<ResponseModel<List<LivroModel>>> AtualizarLivro(LivroEdicaoDTO livroEdicaoDTO);
         Task<ResponseModel<List<LivroModel>>> DeletarLivro(int idLivro);
 

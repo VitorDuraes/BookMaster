@@ -37,18 +37,6 @@ namespace GerenciamentoDeLivros.Controllers
             }
             return Ok(autor);
         }
-
-        [HttpGet("BuscarAutorPorIdLivro/{idLivro}")]
-        public async Task<ActionResult<ResponseModel<AutorModel>>> BuscarAutorPorIdLivro(int idLivro)
-        {
-            var autor = await _autorInterface.BuscarAutorPorIdLivro(idLivro);
-            if (autor.Status == false)
-            {
-                return NotFound(autor);
-            }
-            return Ok(autor);
-        }
-
         [HttpPost("AdicionarAutor")]
         public async Task<ActionResult<ResponseModel<List<AutorModel>>>> AdicionarAutor(AutorCriacaoDTO autorCriacaoDTO)
         {
@@ -64,7 +52,7 @@ namespace GerenciamentoDeLivros.Controllers
 
         }
 
-        [HttpDelete("DeletvararAutor/{idAutor}")]
+        [HttpDelete("DeletarAutor/{idAutor}")]
         public async Task<ActionResult<ResponseModel<List<AutorModel>>>> DeletarAutor(int idAutor)
         {
             var autores = await _autorInterface.DeletarAutor(idAutor);

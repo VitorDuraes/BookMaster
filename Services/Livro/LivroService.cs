@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using GerenciamentoDeLivros.Data;
 using GerenciamentoDeLivros.DTOs.Livro;
 using GerenciamentoDeLivros.Models;
@@ -11,34 +12,33 @@ namespace GerenciamentoDeLivros.Services.Livro
 {
     public class LivroService : ILivroInterface
     {
+        private readonly IMapper _mapper;
         private readonly AppDbContext _context;
 
-        public LivroService(AppDbContext context)
+        public LivroService(AppDbContext context, IMapper mapper)
         {
             _context = context;
+            _mapper = mapper;
         }
-        public async Task<ResponseModel<List<LivroModel>>> AdicionarLivro(LivroCriacaoDTO livroCriacaoDTO)
+        public async Task<ResponseModel<LivroDTO>> AdicionarLivro(LivroCriacaoDTO livroDTO)
         {
-            ResponseModel<List<LivroModel>> response = new ResponseModel<List<LivroModel>>();
+            ResponseModel<LivroDTO> response = new ResponseModel<LivroDTO>();
+
             try
             {
-                var livro = new LivroModel()
-                {
-                    Titulo = livroCriacaoDTO.Titulo,
-                    Autor = livroCriacaoDTO.Autor
-                };
-                _context.Add(livro);
+                var livro = _mapper.Map<LivroModel>(livroDTO);
+                _context.Livros.Add(livro);
                 await _context.SaveChangesAsync();
-                response.Dados = await _context.Livros.ToListAsync();
+
+                response.Dados = _mapper.Map<LivroDTO>(livro);
                 response.Mensagem = "Livro adicionado com sucesso.";
-                return response;
             }
             catch (Exception ex)
             {
                 response.Status = false;
                 response.Mensagem = ex.Message;
-                return response;
             }
+            return response;
         }
 
         public async Task<ResponseModel<List<LivroModel>>> AtualizarLivro(LivroEdicaoDTO livroEdicaoDTO)
@@ -46,44 +46,20 @@ namespace GerenciamentoDeLivros.Services.Livro
             ResponseModel<List<LivroModel>> response = new ResponseModel<List<LivroModel>>();
             try
             {
-                var livro = await _context.Livros.FirstOrDefaultAsync(livroBanco => livroBanco.Id == livroEdicaoDTO.Id);
+                var livro = await _context.Livros.FirstOrDefaultAsync(livroBanco => livroBanco.Id == livroEdicaoDTO.AutorId);
                 if (livro == null)
                 {
                     response.Mensagem = "Livro não encontrado.";
                     return response;
                 }
-                livro.Titulo = livroEdicaoDTO.Titulo;
-                livro.Autor = livroEdicaoDTO.Autor;
+                _mapper.Map<LivroModel>(livroEdicaoDTO);
                 _context.Update(livro);
                 await _context.SaveChangesAsync();
+
                 response.Dados = await _context.Livros.ToListAsync();
                 response.Mensagem = "Livro atualizado com sucesso.";
                 return response;
 
-            }
-            catch (Exception ex)
-            {
-                response.Status = false;
-                response.Mensagem = ex.Message;
-                return response;
-            }
-        }
-
-        public async Task<ResponseModel<LivroModel>> BuscarLivroPorId(int idLivro)
-        {
-            ResponseModel<LivroModel> response = new ResponseModel<LivroModel>();
-            try
-            {
-                var livro = await _context.Livros.FindAsync(idLivro);
-                if (livro == null)
-                {
-                    response.Status = false;
-                    response.Mensagem = "Livro não encontrado.";
-                    return response;
-                }
-                response.Dados = livro;
-                response.Mensagem = "Livro encontrado com sucesso.";
-                return response;
             }
             catch (Exception ex)
             {
@@ -145,22 +121,24 @@ namespace GerenciamentoDeLivros.Services.Livro
 
         }
 
-        public async Task<ResponseModel<List<LivroModel>>> ListarLivros()
+        public async Task<ResponseModel<List<LivroDTO>>> ListarLivros()
         {
-            ResponseModel<List<LivroModel>> response = new ResponseModel<List<LivroModel>>();
+            ResponseModel<List<LivroDTO>> response = new ResponseModel<List<LivroDTO>>();
             try
             {
-                var livro = await _context.Livros.ToListAsync();
-                response.Dados = livro;
+                var livros = await _context.Livros.Include(l => l.Autor).ToListAsync();
+                response.Dados = _mapper.Map<List<LivroDTO>>(livros);
                 response.Mensagem = "Livros listados com sucesso.";
-                return response;
+
             }
             catch (Exception ex)
             {
                 response.Status = false;
                 response.Mensagem = ex.Message;
-                return response;
+
             }
+            return response;
+
 
         }
 

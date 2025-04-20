@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using GerenciamentoDeLivros.Data;
 using GerenciamentoDeLivros.DTOs.Autor;
 using GerenciamentoDeLivros.Models;
@@ -11,11 +12,13 @@ namespace GerenciamentoDeLivros.Services.Autor
 {
     public class AutorService : IAutorInterface
     {
+        private readonly IMapper _mapper;
         private readonly AppDbContext _context;
 
-        public AutorService(AppDbContext context)
+        public AutorService(AppDbContext context, IMapper mapper)
         {
             _context = context;
+            _mapper = mapper;
         }
 
         public async Task<ResponseModel<List<AutorModel>>> ListarAutores()
@@ -61,41 +64,14 @@ namespace GerenciamentoDeLivros.Services.Autor
             }
         }
 
-        public async Task<ResponseModel<AutorModel>> BuscarAutorPorIdLivro(int idLivro)
-        {
-
-            ResponseModel<AutorModel> response = new ResponseModel<AutorModel>();
-            try
-            {
-                var autor = await _context.Livros.Include(l => l.Autor).FirstOrDefaultAsync(l => l.Id == idLivro);
-                if (autor == null)
-                {
-                    response.Status = false;
-                    response.Mensagem = "Autor não encontrado.";
-                    return response;
-                }
-                response.Dados = autor.Autor;
-                response.Mensagem = "Autor encontrado com sucesso.";
-                return response;
-            }
-            catch (Exception ex)
-            {
-                response.Status = false;
-                response.Mensagem = ex.Message;
-                return response;
-            }
-        }
 
         public async Task<ResponseModel<List<AutorModel>>> AdicionarAutor(AutorCriacaoDTO autorCriacaoDTO)
         {
             ResponseModel<List<AutorModel>> response = new ResponseModel<List<AutorModel>>();
             try
             {
-                var autor = new AutorModel()
-                {
-                    Nome = autorCriacaoDTO.Nome,
-                    Sobrenome = autorCriacaoDTO.Sobrenome
-                };
+                var autor = _mapper.Map<AutorModel>(autorCriacaoDTO);
+
                 _context.Add(autor);
                 await _context.SaveChangesAsync();
                 response.Dados = await _context.Autores.ToListAsync();
@@ -121,8 +97,7 @@ namespace GerenciamentoDeLivros.Services.Autor
                     response.Mensagem = "Autor não encontrado.";
                     return response;
                 }
-                autor.Nome = autorEdicaoDTO.Nome;
-                autor.Sobrenome = autorEdicaoDTO.Sobrenome;
+                autor = _mapper.Map<AutorModel>(autorEdicaoDTO);
                 _context.Update(autor);
                 await _context.SaveChangesAsync();
                 response.Dados = await _context.Autores.ToListAsync();

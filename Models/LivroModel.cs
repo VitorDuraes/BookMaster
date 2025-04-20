@@ -9,6 +9,11 @@ namespace GerenciamentoDeLivros.Models
     {
         public int Id { get; set; }
         public string Titulo { get; set; }
+
+        // Adicione essa propriedade:
+        public int AutorId { get; set; } // chave estrangeira
+
+        // Navegação
         public AutorModel Autor { get; set; }
     }
 }

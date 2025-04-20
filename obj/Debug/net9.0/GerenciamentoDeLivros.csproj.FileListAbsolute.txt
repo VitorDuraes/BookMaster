@@ -165,3 +165,6 @@ C:\Users\zVito\OneDrive\Desktop\GerenciamentoDeLivros\obj\Debug\net9.0\refint\Ge
 C:\Users\zVito\OneDrive\Desktop\GerenciamentoDeLivros\obj\Debug\net9.0\GerenciamentoDeLivros.pdb
 C:\Users\zVito\OneDrive\Desktop\GerenciamentoDeLivros\obj\Debug\net9.0\GerenciamentoDeLivros.genruntimeconfig.cache
 C:\Users\zVito\OneDrive\Desktop\GerenciamentoDeLivros\obj\Debug\net9.0\ref\GerenciamentoDeLivros.dll
+C:\Users\zVito\OneDrive\Desktop\GerenciamentoDeLivros\obj\Debug\net9.0\GerenciamentoDeLivros.sourcelink.json
+C:\Users\zVito\OneDrive\Desktop\GerenciamentoDeLivros\bin\Debug\net9.0\AutoMapper.dll
+C:\Users\zVito\OneDrive\Desktop\GerenciamentoDeLivros\bin\Debug\net9.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll

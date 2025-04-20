@@ -11,7 +11,6 @@ namespace GerenciamentoDeLivros.Services.Autor
     {
         Task<ResponseModel<List<AutorModel>>> ListarAutores();
         Task<ResponseModel<AutorModel>> BuscarAutorPorId(int idAutor);
-        Task<ResponseModel<AutorModel>> BuscarAutorPorIdLivro(int idLivro);
         Task<ResponseModel<List<AutorModel>>> AdicionarAutor(AutorCriacaoDTO autorCriacaoDTO);
         Task<ResponseModel<List<AutorModel>>> AtualizarAutor(AutorEdicaoDTO autorEdicaoDTO);
         Task<ResponseModel<List<AutorModel>>> DeletarAutor(int idAutor);
