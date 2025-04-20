@@ -1,8 +1,8 @@
 {
   "Version": 1,
-  "Hash": "9uAAILCsnZ5xqu4wCESUz6yqDJ9eOX/NtuTHWKW0QvU=",
-  "Source": "GerenciamentoDeLivros",
-  "BasePath": "_content/GerenciamentoDeLivros",
+  "Hash": "GLm2K5pJlm0gtLk8gSq4zrgf8KxVhmneh7Fc9LdMnvQ=",
+  "Source": "BookMaster",
+  "BasePath": "_content/BookMaster",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],

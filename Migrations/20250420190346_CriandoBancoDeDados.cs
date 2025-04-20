@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace GerenciamentoDeLivros.Migrations
+namespace BookMaster.Migrations
 {
     /// <inheritdoc />
     public partial class CriandoBancoDeDados : Migration
@@ -31,7 +31,7 @@ namespace GerenciamentoDeLivros.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Titulo = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    AutorId = table.Column<int>(type: "int", nullable: true)
+                    AutorId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -40,7 +40,8 @@ namespace GerenciamentoDeLivros.Migrations
                         name: "FK_Livros_Autores_AutorId",
                         column: x => x.AutorId,
                         principalTable: "Autores",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
