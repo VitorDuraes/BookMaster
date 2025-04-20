@@ -2,10 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using GerenciamentoDeLivros.DTOs.Autor;
-using GerenciamentoDeLivros.Models;
+using BookMaster.DTOs.Autor;
+using BookMaster.Models;
 
-namespace GerenciamentoDeLivros.Services.Autor
+namespace BookMaster.Services.Autor
 {
     public interface IAutorInterface
     {

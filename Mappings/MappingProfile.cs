@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
-using GerenciamentoDeLivros.DTOs.Autor;
-using GerenciamentoDeLivros.DTOs.Livro;
-using GerenciamentoDeLivros.Models;
+using BookMaster.DTOs.Autor;
+using BookMaster.DTOs.Livro;
+using BookMaster.Models;
 
-namespace GerenciamentoDeLivros.Mappings
+namespace BookMaster.Mappings
 {
     public class MappingProfile : Profile
     {

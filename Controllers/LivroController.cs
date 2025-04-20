@@ -2,12 +2,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using GerenciamentoDeLivros.DTOs.Livro;
-using GerenciamentoDeLivros.Models;
-using GerenciamentoDeLivros.Services.Livro;
+using BookMaster.DTOs.Livro;
+using BookMaster.Models;
+using BookMaster.Services.Livro;
 using Microsoft.AspNetCore.Mvc;
 
-namespace GerenciamentoDeLivros.Controllers
+namespace BookMaster.Controllers
 {
 
     [Route("api/[controller]")]

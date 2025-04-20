@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
-using GerenciamentoDeLivros.Data;
-using GerenciamentoDeLivros.DTOs.Autor;
-using GerenciamentoDeLivros.Models;
+using BookMaster.Data;
+using BookMaster.DTOs.Autor;
+using BookMaster.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace GerenciamentoDeLivros.Services.Autor
+namespace BookMaster.Services.Autor
 {
     public class AutorService : IAutorInterface
     {

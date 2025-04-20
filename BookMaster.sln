@@ -2,7 +2,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.2.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GerenciamentoDeLivros", "GerenciamentoDeLivros.csproj", "{7ADC59F5-F484-1CEF-DB2C-1217344C1298}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookMaster", "BookMaster.csproj", "{7ADC59F5-F484-1CEF-DB2C-1217344C1298}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

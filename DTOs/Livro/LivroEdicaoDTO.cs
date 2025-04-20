@@ -2,9 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using GerenciamentoDeLivros.Models;
+using BookMaster.Models;
 
-namespace GerenciamentoDeLivros.DTOs.Livro
+namespace BookMaster.DTOs.Livro
 {
     public class LivroEdicaoDTO
     {

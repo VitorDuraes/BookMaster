@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace GerenciamentoDeLivros.Models
+namespace BookMaster.Models
 {
     public class LivroModel
     {

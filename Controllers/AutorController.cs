@@ -4,11 +4,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
-using GerenciamentoDeLivros.Services.Autor;
-using GerenciamentoDeLivros.Models;
-using GerenciamentoDeLivros.DTOs.Autor;
+using BookMaster.Services.Autor;
+using BookMaster.Models;
+using BookMaster.DTOs.Autor;
 
-namespace GerenciamentoDeLivros.Controllers
+namespace BookMaster.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

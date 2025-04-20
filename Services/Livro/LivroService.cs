@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
-using GerenciamentoDeLivros.Data;
-using GerenciamentoDeLivros.DTOs.Livro;
-using GerenciamentoDeLivros.Models;
+using BookMaster.Data;
+using BookMaster.DTOs.Livro;
+using BookMaster.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace GerenciamentoDeLivros.Services.Livro
+namespace BookMaster.Services.Livro
 {
     public class LivroService : ILivroInterface
     {

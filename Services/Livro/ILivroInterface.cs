@@ -2,11 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using GerenciamentoDeLivros.DTOs.Autor;
-using GerenciamentoDeLivros.DTOs.Livro;
-using GerenciamentoDeLivros.Models;
+using BookMaster.DTOs.Autor;
+using BookMaster.DTOs.Livro;
+using BookMaster.Models;
 
-namespace GerenciamentoDeLivros.Services.Livro
+namespace BookMaster.Services.Livro
 {
     public interface ILivroInterface
     {

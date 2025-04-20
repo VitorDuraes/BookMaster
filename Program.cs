@@ -1,7 +1,7 @@
-using GerenciamentoDeLivros.Data;
-using GerenciamentoDeLivros.Mappings;
-using GerenciamentoDeLivros.Services.Autor;
-using GerenciamentoDeLivros.Services.Livro;
+using BookMaster.Data;
+using BookMaster.Mappings;
+using BookMaster.Services.Autor;
+using BookMaster.Services.Livro;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 

@@ -1,6 +1,0 @@
-@GerenciamentoDeLivros_HostAddress = http://localhost:5204
-
-GET {{GerenciamentoDeLivros_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###

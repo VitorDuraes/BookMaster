@@ -2,10 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using GerenciamentoDeLivros.Models;
+using BookMaster.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace GerenciamentoDeLivros.Data
+namespace BookMaster.Data
 {
     public class AppDbContext : DbContext
     {
