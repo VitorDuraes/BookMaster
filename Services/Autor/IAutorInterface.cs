@@ -14,6 +14,8 @@ namespace BookMaster.Services.Autor
         Task<ResponseModel<List<AutorModel>>> AdicionarAutor(AutorCriacaoDTO autorCriacaoDTO);
         Task<ResponseModel<List<AutorModel>>> AtualizarAutor(AutorEdicaoDTO autorEdicaoDTO);
         Task<ResponseModel<List<AutorModel>>> DeletarAutor(int idAutor);
+        Task<ResponseModel<AutorModel>> BuscarAutorPorNome(string nomeAutor);
+
 
 
 

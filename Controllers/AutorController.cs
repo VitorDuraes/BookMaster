@@ -37,6 +37,17 @@ namespace BookMaster.Controllers
             }
             return Ok(autor);
         }
+
+        [HttpGet("BuscarAutorPorNome/{nomeAutor}")]
+        public async Task<ActionResult<ResponseModel<AutorModel>>> BuscarAutorPorNome(string nomeAutor)
+        {
+            var autor = await _autorInterface.BuscarAutorPorNome(nomeAutor);
+            if (autor.Status == false)
+            {
+                return NotFound(autor);
+            }
+            return Ok(autor);
+        }
         [HttpPost("AdicionarAutor")]
         public async Task<ActionResult<ResponseModel<List<AutorModel>>>> AdicionarAutor(AutorCriacaoDTO autorCriacaoDTO)
         {

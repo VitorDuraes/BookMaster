@@ -64,6 +64,30 @@ namespace BookMaster.Services.Autor
             }
         }
 
+        public async Task<ResponseModel<AutorModel>> BuscarAutorPorNome(string nomeAutor)
+        {
+            ResponseModel<AutorModel> response = new ResponseModel<AutorModel>();
+            try
+            {
+                var autor = await _context.Autores.FirstOrDefaultAsync(autorBanco => autorBanco.Nome == nomeAutor);
+                if (autor == null)
+                {
+                    response.Status = false;
+                    response.Mensagem = "Autor não encontrado.";
+                    return response;
+                }
+                response.Dados = autor;
+                response.Mensagem = "Autor encontrado com sucesso.";
+                return response;
+            }
+            catch (Exception ex)
+            {
+                response.Status = false;
+                response.Mensagem = ex.Message;
+                return response;
+            }
+        }
+
 
         public async Task<ResponseModel<List<AutorModel>>> AdicionarAutor(AutorCriacaoDTO autorCriacaoDTO)
         {
