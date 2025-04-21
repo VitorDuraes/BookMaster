@@ -26,6 +26,17 @@ namespace BookMaster.Controllers
             var livros = await _livroInterface.ListarLivros();
             return Ok(livros);
         }
+
+        [HttpGet("PesquisarLivros")]
+        public async Task<ActionResult<ResponseModel<List<LivroModel>>>> PesquisarLivros(string? titulo, int? autorId)
+        {
+            var resultado = await _livroInterface.PesquisarLivros(titulo, autorId);
+            if (!resultado.Status)
+                return NotFound(resultado.Mensagem);
+
+            return Ok(resultado);
+
+        }
         [HttpGet("BuscarLivrosPorIdAutor/{idAutor}")]
         public async Task<ActionResult<ResponseModel<LivroModel>>> BuscarLivrosPorIdAutor(int idAutor)
         {
@@ -58,9 +69,8 @@ namespace BookMaster.Controllers
             var livros = await _livroInterface.DeletarLivro(idLivro);
             return Ok(livros);
 
-
-
-
         }
+
+
     }
 }

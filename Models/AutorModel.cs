@@ -13,5 +13,10 @@ namespace BookMaster.Models
         public string Sobrenome { get; set; }
         [JsonIgnore]
         public ICollection<LivroModel> Livros { get; set; }
+
+        public static implicit operator AutorModel(List<AutorModel> v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

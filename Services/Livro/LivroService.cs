@@ -142,5 +142,44 @@ namespace BookMaster.Services.Livro
 
         }
 
+        public async Task<ResponseModel<List<LivroModel>>> PesquisarLivros(string? titulo = null, int? autorId = null)
+        {
+            ResponseModel<List<LivroModel>> response = new ResponseModel<List<LivroModel>>();
+
+            try
+            {
+                var query = _context.Livros.AsQueryable();
+
+                if (!string.IsNullOrEmpty(titulo))
+                {
+                    query = query.Where(l => l.Titulo.ToLower().Contains(titulo.ToLower()));
+                }
+
+                if (autorId.HasValue)
+                {
+                    query = query.Where(l => l.AutorId == autorId.Value);
+                }
+
+                var livros = await query.ToListAsync();
+
+                if (livros == null || !livros.Any())
+                {
+                    response.Status = false;
+                    response.Mensagem = "Nenhum livro encontrado com os critérios informados.";
+                    return response;
+                }
+
+                response.Dados = livros;
+                response.Mensagem = "Livros listados com sucesso.";
+                return response;
+            }
+            catch (Exception ex)
+            {
+                response.Status = false;
+                response.Mensagem = ex.Message;
+                return response;
+            }
+        }
+
     }
 }

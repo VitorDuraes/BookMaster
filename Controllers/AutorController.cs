@@ -69,9 +69,17 @@ namespace BookMaster.Controllers
             var autores = await _autorInterface.DeletarAutor(idAutor);
             return Ok(autores);
 
+        }
 
-
-
+        [HttpGet("paginado")]
+        public async Task<IActionResult> ListarAutoresPaginado(
+        int page = 1,
+        int pageSize = 10,
+        string orderBy = "Nome",
+        string direction = "asc")
+        {
+            var resultado = await _autorInterface.ListarAutoresPaginado(page, pageSize, orderBy, direction);
+            return Ok(resultado);
         }
     }
 }

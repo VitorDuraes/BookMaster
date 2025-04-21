@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using AutoMapper;
 using BookMaster.Data;
 using BookMaster.DTOs.Autor;
@@ -64,20 +60,24 @@ namespace BookMaster.Services.Autor
             }
         }
 
-        public async Task<ResponseModel<AutorModel>> BuscarAutorPorNome(string nomeAutor)
+        public async Task<ResponseModel<List<AutorModel>>> BuscarAutorPorNome(string nomeAutor)
         {
-            ResponseModel<AutorModel> response = new ResponseModel<AutorModel>();
+            ResponseModel<List<AutorModel>> response = new ResponseModel<List<AutorModel>>();
             try
             {
-                var autor = await _context.Autores.FirstOrDefaultAsync(autorBanco => autorBanco.Nome == nomeAutor);
-                if (autor == null)
+                var autores = await _context.Autores
+                    .Where(a => (a.Nome + " " + a.Sobrenome).ToLower().Contains(nomeAutor.ToLower()))
+                    .ToListAsync();
+
+                if (autores == null || !autores.Any())
                 {
                     response.Status = false;
-                    response.Mensagem = "Autor não encontrado.";
+                    response.Mensagem = "Nenhum autor encontrado.";
                     return response;
                 }
-                response.Dados = autor;
-                response.Mensagem = "Autor encontrado com sucesso.";
+
+                response.Dados = autores;
+                response.Mensagem = "Autores encontrados com sucesso.";
                 return response;
             }
             catch (Exception ex)
@@ -164,6 +164,41 @@ namespace BookMaster.Services.Autor
                 return response;
             }
 
+        }
+
+
+        public async Task<PaginacaoResponseModel<AutorModel>> ListarAutoresPaginado(
+        int page = 1, int pageSize = 10, string orderBy = "Nome", string direction = "asc")
+        {
+            var query = _context.Autores.AsQueryable();
+
+            // Ordenação dinâmica
+            if (orderBy.ToLower() == "nome")
+            {
+                query = direction == "desc"
+                    ? query.OrderByDescending(a => a.Nome)
+                    : query.OrderBy(a => a.Nome);
+            }
+
+            // Paginação
+            var total = await query.CountAsync();
+            var autores = await query
+                .Skip((page - 1) * pageSize)
+                .Take(pageSize)
+                .ToListAsync();
+
+            return new PaginacaoResponseModel<AutorModel>
+            {
+                TotalItens = total,
+                PaginaAtual = page,
+                TamanhoPagina = pageSize,
+                Dados = autores
+            };
+        }
+
+        Task<ResponseModel<List<AutorModel>>> IAutorInterface.BuscarAutorPorNome(string nomeAutor)
+        {
+            throw new NotImplementedException();
         }
     }
 }
