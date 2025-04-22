@@ -89,14 +89,15 @@ namespace BookMaster.Services.Autor
         }
 
 
-        public async Task<ResponseModel<List<AutorModel>>> AdicionarAutor(AutorCriacaoDTO autorCriacaoDTO)
+        public async Task<ResponseModel<List<AutorModel>>> AdicionarAutor(List<AutorCriacaoDTO> autorCriacaoDTO)
         {
             ResponseModel<List<AutorModel>> response = new ResponseModel<List<AutorModel>>();
             try
             {
-                var autor = _mapper.Map<AutorModel>(autorCriacaoDTO);
+                var autor = _mapper.Map<List<AutorModel>>(autorCriacaoDTO);
 
                 _context.Add(autor);
+                await _context.AddRangeAsync();
                 await _context.SaveChangesAsync();
                 response.Dados = await _context.Autores.ToListAsync();
                 response.Mensagem = "Autor adicionado com sucesso.";
