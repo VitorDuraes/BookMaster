@@ -66,8 +66,20 @@ namespace BookMaster.Controllers
         [HttpPost]
         public async Task<IActionResult> AdicionarLivro([FromBody] List<LivroCriacaoDTO> livrosDto)
         {
+            if (livrosDto == null || livrosDto.Count == 0)
+            {
+                return BadRequest(new { Mensagem = "Nenhum livro foi enviado para cadastro." });
+            }
             var response = await _livroInterface.AdicionarLivro(livrosDto);
-            return Ok(response);
+
+            if (response.Status)
+            {
+                return CreatedAtAction(nameof(ListarLivros), new { id = response.Dados.First().Id }, response.Dados);
+            }
+            else
+            {
+                return StatusCode(500, new { Mensagem = response.Mensagem });
+            }
         }
 
         /// <summary>

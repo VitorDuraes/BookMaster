@@ -26,6 +26,12 @@ namespace BookMaster.Services.Livro
 
             try
             {
+                if (livrosCriacaoDTO == null || !livrosCriacaoDTO.Any())
+                {
+                    response.Status = false;
+                    response.Mensagem = "Nenhum livro foi enviado para cadastro.";
+                    return response;
+                }
                 var livros = _mapper.Map<List<LivroModel>>(livrosCriacaoDTO);
 
                 await _context.Livros.AddRangeAsync(livros);
@@ -37,7 +43,7 @@ namespace BookMaster.Services.Livro
             catch (Exception ex)
             {
                 response.Status = false;
-                response.Mensagem = ex.Message;
+                response.Mensagem = "Erro inesperado ao adicionar livros. Detalhes: " + ex.Message;
             }
 
             return response;

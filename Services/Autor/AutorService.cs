@@ -55,7 +55,7 @@ namespace BookMaster.Services.Autor
             catch (Exception ex)
             {
                 response.Status = false;
-                response.Mensagem = ex.Message;
+                response.Mensagem = "Erro inesperado. Detalhes: " + ex.Message;
                 return response;
             }
         }

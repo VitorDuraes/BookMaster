@@ -4,6 +4,16 @@
         <name>BookMaster</name>
     </assembly>
     <members>
+        <member name="M:BookMaster.Controllers.AuthController.Registrar(BookMaster.DTOs.Usuarios.UsuarioRegistroDTO)">
+            <summary>
+            Registra um novo usuário.
+            /// </summary>
+        </member>
+        <member name="M:BookMaster.Controllers.AuthController.Login(BookMaster.DTOs.Usuarios.UsuarioLoginDTO)">
+            <summary>
+            Realiza o login do usuário.
+            /// </summary>
+        </member>
         <member name="M:BookMaster.Controllers.AutorController.ListarAutores">
             <summary>
             Lista todos os autores cadastrados.
@@ -69,16 +79,16 @@
             Deleta um livro existente.
             </summary>
         </member>
-        <member name="T:BookMaster.Migrations.CriandoBancoDeDados">
+        <member name="T:BookMaster.Migrations.RenomearColunaSenhaHaskParaSenhaHash">
             <inheritdoc />
         </member>
-        <member name="M:BookMaster.Migrations.CriandoBancoDeDados.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+        <member name="M:BookMaster.Migrations.RenomearColunaSenhaHaskParaSenhaHash.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
             <inheritdoc />
         </member>
-        <member name="M:BookMaster.Migrations.CriandoBancoDeDados.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+        <member name="M:BookMaster.Migrations.RenomearColunaSenhaHaskParaSenhaHash.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
             <inheritdoc />
         </member>
-        <member name="M:BookMaster.Migrations.CriandoBancoDeDados.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+        <member name="M:BookMaster.Migrations.RenomearColunaSenhaHaskParaSenhaHash.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <inheritdoc />
         </member>
     </members>
