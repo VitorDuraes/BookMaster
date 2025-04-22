@@ -13,7 +13,7 @@ namespace BookMaster.Services.Livro
         Task<ResponseModel<List<LivroDTO>>> ListarLivros();
         Task<ResponseModel<List<LivroModel>>> PesquisarLivros(string? titulo, int? autorId);
         Task<ResponseModel<List<LivroModel>>> BuscarLivrosPorIdAutor(int idAutor);
-        Task<ResponseModel<LivroDTO>> AdicionarLivro(LivroCriacaoDTO livroDTO);
+        Task<ResponseModel<List<LivroModel>>> AdicionarLivro(List<LivroCriacaoDTO> livrosCriacaoDTO);
         Task<ResponseModel<List<LivroModel>>> AtualizarLivro(LivroEdicaoDTO livroEdicaoDTO);
         Task<ResponseModel<List<LivroModel>>> DeletarLivro(int idLivro);
 

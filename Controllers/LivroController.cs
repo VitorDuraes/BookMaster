@@ -49,10 +49,10 @@ namespace BookMaster.Controllers
         }
 
         [HttpPost("AdicionarLivro")]
-        public async Task<ActionResult<ResponseModel<List<LivroModel>>>> AdicionarLivro(LivroCriacaoDTO livroCriacaoDTO)
+        public async Task<IActionResult> AdicionarLivro([FromBody] List<LivroCriacaoDTO> livrosDto)
         {
-            var livros = await _livroInterface.AdicionarLivro(livroCriacaoDTO);
-            return Ok(livros);
+            var response = await _livroInterface.AdicionarLivro(livrosDto);
+            return Ok(response);
         }
 
         [HttpPut("AtualizarLivro")]

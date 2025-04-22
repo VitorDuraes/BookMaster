@@ -9,9 +9,7 @@ namespace BookMaster.DTOs.Livro
 {
     public class LivroCriacaoDTO
     {
-
         public string Titulo { get; set; }
-
         public int AutorId { get; set; }
     }
 }

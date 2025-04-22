@@ -20,24 +20,26 @@ namespace BookMaster.Services.Livro
             _context = context;
             _mapper = mapper;
         }
-        public async Task<ResponseModel<LivroDTO>> AdicionarLivro(LivroCriacaoDTO livroDTO)
+        public async Task<ResponseModel<List<LivroModel>>> AdicionarLivro(List<LivroCriacaoDTO> livrosCriacaoDTO)
         {
-            ResponseModel<LivroDTO> response = new ResponseModel<LivroDTO>();
+            var response = new ResponseModel<List<LivroModel>>();
 
             try
             {
-                var livro = _mapper.Map<LivroModel>(livroDTO);
-                _context.Livros.Add(livro);
+                var livros = _mapper.Map<List<LivroModel>>(livrosCriacaoDTO);
+
+                await _context.Livros.AddRangeAsync(livros);
                 await _context.SaveChangesAsync();
 
-                response.Dados = _mapper.Map<LivroDTO>(livro);
-                response.Mensagem = "Livro adicionado com sucesso.";
+                response.Dados = livros;
+                response.Mensagem = "Livro(s) adicionado(s) com sucesso.";
             }
             catch (Exception ex)
             {
                 response.Status = false;
                 response.Mensagem = ex.Message;
             }
+
             return response;
         }
 

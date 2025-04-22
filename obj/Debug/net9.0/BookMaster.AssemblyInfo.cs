@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BookMaster")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7f3870f75d1d0d835ca4b36eaf9b54d569249c9f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5233c984ad0f198b65ad3c911c638ed1092e6a49")]
 [assembly: System.Reflection.AssemblyProductAttribute("BookMaster")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BookMaster")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
