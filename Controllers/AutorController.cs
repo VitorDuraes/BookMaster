@@ -10,8 +10,10 @@ using BookMaster.DTOs.Autor;
 
 namespace BookMaster.Controllers
 {
-    [Route("api/[controller]")]
     [ApiController]
+    [Route("api/autores")]
+    [ApiExplorerSettings(GroupName = "v1")]
+    [Tags("Autores")]
     public class AutorController : ControllerBase
     {
         private readonly IAutorInterface _autorInterface;
@@ -20,14 +22,20 @@ namespace BookMaster.Controllers
             _autorInterface = autorInterface;
         }
 
-        [HttpGet("ListarAutores")]
+        /// <summary>
+        /// Lista todos os autores cadastrados.
+        /// </summary>
+        [HttpGet]
         public async Task<ActionResult<ResponseModel<List<AutorModel>>>> ListarAutores()
         {
             var autores = await _autorInterface.ListarAutores();
             return Ok(autores);
         }
 
-        [HttpGet("BuscarAutorPorId/{idAutor}")]
+        /// <summary>
+        /// Busca um autor pelo ID.
+        /// </summary>
+        [HttpGet("{idAutor:int}")]
         public async Task<ActionResult<ResponseModel<AutorModel>>> BuscarAutorPorId(int idAutor)
         {
             var autor = await _autorInterface.BuscarAutorPorId(idAutor);
@@ -38,7 +46,10 @@ namespace BookMaster.Controllers
             return Ok(autor);
         }
 
-        [HttpGet("BuscarAutorPorNome/{nomeAutor}")]
+        /// <summary>
+        /// Busca um autor pelo nome.
+        /// </summary>
+        [HttpGet("nome/{nomeAutor}")]
         public async Task<ActionResult<ResponseModel<AutorModel>>> BuscarAutorPorNome(string nomeAutor)
         {
             var autor = await _autorInterface.BuscarAutorPorNome(nomeAutor);
@@ -48,14 +59,21 @@ namespace BookMaster.Controllers
             }
             return Ok(autor);
         }
-        [HttpPost("AdicionarAutor")]
+
+        /// <summary>
+        /// Adiciona um novo autor.
+        /// </summary>
+        [HttpPost]
         public async Task<IActionResult> AdicionarLivro([FromBody] List<AutorCriacaoDTO> autorDto)
         {
             var response = await _autorInterface.AdicionarAutor(autorDto);
             return Ok(response);
         }
 
-        [HttpPut("AtualizarAutor")]
+        /// <summary>
+        /// Atualiza um autor existente.
+        /// </summary>
+        [HttpPut("{idAutor:int}")]
         public async Task<ActionResult<ResponseModel<List<AutorModel>>>> AtualizarAutor(AutorEdicaoDTO autorEdicaoDTO)
         {
             var autores = await _autorInterface.AtualizarAutor(autorEdicaoDTO);
@@ -63,13 +81,20 @@ namespace BookMaster.Controllers
 
         }
 
-        [HttpDelete("DeletarAutor/{idAutor}")]
+        /// <summary>
+        /// Deleta um autor pelo ID.
+        /// </summary>
+        [HttpDelete("{idAutor:int}")]
         public async Task<ActionResult<ResponseModel<List<AutorModel>>>> DeletarAutor(int idAutor)
         {
             var autores = await _autorInterface.DeletarAutor(idAutor);
             return Ok(autores);
 
         }
+
+        /// <summary>
+        /// Lista autores paginados.
+        /// </summary>
 
         [HttpGet("paginado")]
         public async Task<IActionResult> ListarAutoresPaginado(

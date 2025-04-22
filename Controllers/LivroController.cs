@@ -10,8 +10,10 @@ using Microsoft.AspNetCore.Mvc;
 namespace BookMaster.Controllers
 {
 
-    [Route("api/[controller]")]
     [ApiController]
+    [Route("api/livros")]
+    [ApiExplorerSettings(GroupName = "v1")]
+    [Tags("Livros")]
     public class LivroController : ControllerBase
     {
         private readonly ILivroInterface _livroInterface;
@@ -20,14 +22,20 @@ namespace BookMaster.Controllers
             _livroInterface = livroInterface;
         }
 
-        [HttpGet("ListarLivros")]
+        /// <summary>
+        /// Lista todos os livros cadastrados.
+        /// </summary>
+        [HttpGet]
         public async Task<ActionResult<ResponseModel<List<LivroModel>>>> ListarLivros()
         {
             var livros = await _livroInterface.ListarLivros();
             return Ok(livros);
         }
 
-        [HttpGet("PesquisarLivros")]
+        /// <summary>
+        /// Busca um livro pelo Nome.
+        ///</summary>
+        [HttpGet("pesquisa")]
         public async Task<ActionResult<ResponseModel<List<LivroModel>>>> PesquisarLivros(string? titulo, int? autorId)
         {
             var resultado = await _livroInterface.PesquisarLivros(titulo, autorId);
@@ -37,7 +45,11 @@ namespace BookMaster.Controllers
             return Ok(resultado);
 
         }
-        [HttpGet("BuscarLivrosPorIdAutor/{idAutor}")]
+
+        /// <summary>
+        /// Busca um livro pelo ID do Autor.
+        /// </summary>
+        [HttpGet("autor/{idAutor}")]
         public async Task<ActionResult<ResponseModel<LivroModel>>> BuscarLivrosPorIdAutor(int idAutor)
         {
             var livro = await _livroInterface.BuscarLivrosPorIdAutor(idAutor);
@@ -48,22 +60,32 @@ namespace BookMaster.Controllers
             return Ok(livro);
         }
 
-        [HttpPost("AdicionarLivro")]
+        /// <summary>
+        /// Adiciona um novo livro.
+        /// </summary>
+        [HttpPost]
         public async Task<IActionResult> AdicionarLivro([FromBody] List<LivroCriacaoDTO> livrosDto)
         {
             var response = await _livroInterface.AdicionarLivro(livrosDto);
             return Ok(response);
         }
 
-        [HttpPut("AtualizarLivro")]
+        /// <summary>
+        /// Atualiza um livro existente.
+        /// </summary>
+
+        [HttpPut("{idLivro}")]
         public async Task<ActionResult<ResponseModel<List<LivroModel>>>> AtualizarLivro(LivroEdicaoDTO livroEdicaoDTO)
         {
             var livros = await _livroInterface.AtualizarLivro(livroEdicaoDTO);
             return Ok(livros);
 
         }
+        /// <summary>
+        /// Deleta um livro existente.
+        /// </summary>
 
-        [HttpDelete("DeletarLivro/{idLivro}")]
+        [HttpDelete("{idLivro}")]
         public async Task<ActionResult<ResponseModel<List<LivroModel>>>> DeletarLivro(int idLivro)
         {
             var livros = await _livroInterface.DeletarLivro(idLivro);

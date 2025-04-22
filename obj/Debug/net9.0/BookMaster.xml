@@ -1,0 +1,85 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>BookMaster</name>
+    </assembly>
+    <members>
+        <member name="M:BookMaster.Controllers.AutorController.ListarAutores">
+            <summary>
+            Lista todos os autores cadastrados.
+            </summary>
+        </member>
+        <member name="M:BookMaster.Controllers.AutorController.BuscarAutorPorId(System.Int32)">
+            <summary>
+            Busca um autor pelo ID.
+            </summary>
+        </member>
+        <member name="M:BookMaster.Controllers.AutorController.BuscarAutorPorNome(System.String)">
+            <summary>
+            Busca um autor pelo nome.
+            </summary>
+        </member>
+        <member name="M:BookMaster.Controllers.AutorController.AdicionarLivro(System.Collections.Generic.List{BookMaster.DTOs.Autor.AutorCriacaoDTO})">
+            <summary>
+            Adiciona um novo autor.
+            </summary>
+        </member>
+        <member name="M:BookMaster.Controllers.AutorController.AtualizarAutor(BookMaster.DTOs.Autor.AutorEdicaoDTO)">
+            <summary>
+            Atualiza um autor existente.
+            </summary>
+        </member>
+        <member name="M:BookMaster.Controllers.AutorController.DeletarAutor(System.Int32)">
+            <summary>
+            Deleta um autor pelo ID.
+            </summary>
+        </member>
+        <member name="M:BookMaster.Controllers.AutorController.ListarAutoresPaginado(System.Int32,System.Int32,System.String,System.String)">
+            <summary>
+            Lista autores paginados.
+            </summary>
+        </member>
+        <member name="M:BookMaster.Controllers.LivroController.ListarLivros">
+            <summary>
+            Lista todos os livros cadastrados.
+            </summary>
+        </member>
+        <member name="M:BookMaster.Controllers.LivroController.PesquisarLivros(System.String,System.Nullable{System.Int32})">
+             <summary>
+             Busca um livro pelo Nome.
+            </summary>
+        </member>
+        <member name="M:BookMaster.Controllers.LivroController.BuscarLivrosPorIdAutor(System.Int32)">
+            <summary>
+            Busca um livro pelo ID do Autor.
+            </summary>
+        </member>
+        <member name="M:BookMaster.Controllers.LivroController.AdicionarLivro(System.Collections.Generic.List{BookMaster.DTOs.Livro.LivroCriacaoDTO})">
+            <summary>
+            Adiciona um novo livro.
+            </summary>
+        </member>
+        <member name="M:BookMaster.Controllers.LivroController.AtualizarLivro(BookMaster.DTOs.Livro.LivroEdicaoDTO)">
+            <summary>
+            Atualiza um livro existente.
+            </summary>
+        </member>
+        <member name="M:BookMaster.Controllers.LivroController.DeletarLivro(System.Int32)">
+            <summary>
+            Deleta um livro existente.
+            </summary>
+        </member>
+        <member name="T:BookMaster.Migrations.CriandoBancoDeDados">
+            <inheritdoc />
+        </member>
+        <member name="M:BookMaster.Migrations.CriandoBancoDeDados.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:BookMaster.Migrations.CriandoBancoDeDados.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:BookMaster.Migrations.CriandoBancoDeDados.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+    </members>
+</doc>

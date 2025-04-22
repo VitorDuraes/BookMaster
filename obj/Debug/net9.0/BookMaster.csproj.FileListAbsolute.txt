@@ -171,3 +171,5 @@ C:\Users\zVito\OneDrive\Desktop\BookMaster\obj\Debug\net9.0\ref\BookMaster.dll
 C:\Users\zVito\OneDrive\Desktop\BookMaster\bin\Debug\net9.0\FluentValidation.dll
 C:\Users\zVito\OneDrive\Desktop\BookMaster\bin\Debug\net9.0\FluentValidation.AspNetCore.dll
 C:\Users\zVito\OneDrive\Desktop\BookMaster\bin\Debug\net9.0\FluentValidation.DependencyInjectionExtensions.dll
+C:\Users\zVito\OneDrive\Desktop\BookMaster\bin\Debug\net9.0\BookMaster.xml
+C:\Users\zVito\OneDrive\Desktop\BookMaster\obj\Debug\net9.0\BookMaster.xml
