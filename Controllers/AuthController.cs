@@ -24,7 +24,7 @@ namespace BookMaster.Controllers
 
         /// <summary>
         /// Registra um novo usuário.
-        /// /// </summary>
+        ///</summary>
         [HttpPost("registrar")]
         public async Task<IActionResult> Registrar(UsuarioRegistroDTO usuarioRegistroDTO)
         {
@@ -40,7 +40,7 @@ namespace BookMaster.Controllers
 
         /// <summary>
         /// Realiza o login do usuário.
-        /// /// </summary>
+        /// </summary>
         [HttpPost("login")]
         public async Task<IActionResult> Login(UsuarioLoginDTO usuarioLoginDTO)
         {

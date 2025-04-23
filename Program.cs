@@ -1,5 +1,6 @@
 using BookMaster.Data;
 using BookMaster.Mappings;
+using BookMaster.Middlewares;
 using BookMaster.Services.Autor;
 using BookMaster.Services.Livro;
 using BookMaster.Services.Usuarios;
@@ -95,6 +96,9 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseMiddleware<ErrorHandlingMiddleware>();
+app.UseMiddleware<RequestLoggingMiddleware>();
 
 app.UseHttpsRedirection();
 

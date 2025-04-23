@@ -5,14 +5,14 @@
     </assembly>
     <members>
         <member name="M:BookMaster.Controllers.AuthController.Registrar(BookMaster.DTOs.Usuarios.UsuarioRegistroDTO)">
-            <summary>
-            Registra um novo usuário.
-            /// </summary>
+             <summary>
+             Registra um novo usuário.
+            </summary>
         </member>
         <member name="M:BookMaster.Controllers.AuthController.Login(BookMaster.DTOs.Usuarios.UsuarioLoginDTO)">
             <summary>
             Realiza o login do usuário.
-            /// </summary>
+            </summary>
         </member>
         <member name="M:BookMaster.Controllers.AutorController.ListarAutores">
             <summary>
