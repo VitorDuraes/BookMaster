@@ -58,7 +58,7 @@ Clone o repositório:
 bash
 Copiar
 Editar
-git clone https://github.com/seu-usuario/bookmaster.git
+git clone https://github.com/Vitor-Duraes/bookmaster.git
 cd bookmaster
 Configure a string de conexão no appsettings.json.
 
